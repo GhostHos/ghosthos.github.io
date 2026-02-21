@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Os Encantados | Fantasia Escolar e Magia</title>
+    <meta name="description" content="Descubra o universo de 'Os Encantados', uma fantasia escolar onde os alunos da Academia treinam para manter o equilíbrio entre humanos, encantados e maldições.">
+    <meta name="keywords" content="Os Encantados, fantasia escolar, magia, academia de magia, rei das maldições, livro de fantasia, jovens adultos, literatura fantástica">
+    <meta name="author" content="Seu Nome Aqui">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Os Encantados | Fantasia Escolar">
+    <meta property="og:description" content="O problema não é o mal. É o que fazemos em nome do bem. Conheça a Academia e prepare-se para a batalha contra o Rei das Maldições.">
+    <meta property="og:type" content="website">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <header>
+        <div class="container reveal">
+            <h1 class="hero-title">"O problema não é o mal. É o que fazemos em nome do bem"</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="academy-section container">
+            <div class="reveal">
+                <h2>A Academia de Magia</h2>
+            </div>
+            <div class="academy-content">
+                <div class="academy-text reveal">
+                    <p>Oculta dos olhos desavisados, a <strong>Academia</strong> ergue-se como o bastião do conhecimento e do poder. É aqui que os Encantados, jovens detentores de dons ancestrais, caminham por corredores seculares para dominar a magia que corre em suas veias.</p>
+                    <p>Entre aulas rigorosas de encantos, treinos de combate tático e o peso de um legado milenar, os alunos aprendem que o poder tem um preço. Alianças são forjadas nos pátios, segredos mortais são escondidos nas bibliotecas, e a linha entre o certo e o errado torna-se cada vez mais turva.</p>
+                    <p>Nesta escola, falhar em uma prova não significa apenas uma nota baixa. Pode significar o fim do mundo como o conhecemos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lore-section">
+            <div class="container">
+                <h2 class="reveal">A Balança do Mundo</h2>
+                <div class="lore-grid">
+                    <div class="lore-card reveal">
+                        <h3>Os Encantados</h3>
+                        <p>Os protetores do equilíbrio. Pessoas poderosas que lapidam seus talentos na Academia. Eles carregam o fardo de proteger uma sociedade, enfrentando terrores que a mente humana não suportaria compreender.</p>
+                    </div>
+                    <div class="lore-card reveal">
+                        <h3>Os Humanos</h3>
+                        <p>Aqueles que vivem sob o véu da ignorância. Fragéis perante a verdadeira magia, os humanos são o motivo pelo qual as regras da Academia são tão estritas. Proteger este mundo pacato é o juramento de todo Encantado.</p>
+                    </div>
+                    <div class="lore-card reveal">
+                        <h3>As Maldições</h3>
+                        <p>A encarnação do caos. Nascidas da energia negativa, do ódio e da escuridão, as maldições são abominações impiedosas. Elas não buscam poder, buscam apenas a aniquilação total da ordem natural.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="enemy-section container">
+            <div class="reveal">
+                <h2>O Torneio Encantado</h2>
+                <p>O prestígio não é apenas um título, é a prova de poder. No <strong>Torneio Encantado</strong>, as maiores academias do mundo colidem em uma arena onde a estratégia e o domínio místico são levados ao limite. Mais do que uma competição, é o campo de prova onde os melhores estudantes lutam entre si para decidir qual instituição detém a linhagem mais poderosa da nossa era.</p>
+                <p>As alianças são testadas, as rivalidades se tornam chamas e apenas uma academia sairá com a glória eterna. Você está pronto para defender a sua?</p>
+            </div>
+        </section>
+
+        <section class="newsletter-section reveal">
+            <h2>Receba sua Carta de Convocação</h2>
+            <p>Inscreva-se para receber novidades exclusivas sobre o lançamento do livro, contos extras e segredos da Academia.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Inscrição mágica realizada com sucesso!');">
+                <input type="email" placeholder="Digite seu e-mail místico..." required>
+                <button type="submit">Inscrever-se</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Os Encantados. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => revealOnScroll.observe(el));
+
+        const mouseGlow = document.getElementById('mouseGlow');
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseGlow.style.left = e.clientX + 'px';
+            mouseGlow.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mouseleave', () => mouseGlow.style.opacity = '0');
+        document.addEventListener('mouseenter', () => mouseGlow.style.opacity = '1');
+    </script>
+</body>
+</html>
